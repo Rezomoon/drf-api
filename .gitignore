@@ -1,0 +1,133 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
+
+# Distribution / packaging
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Virtual environments
+venv/
+ENV/
+env/
+.venv/
+env.bak/
+venv.bak/
+
+# Pip cache and wheel
+pip-log.txt
+pip-delete-this-directory.txt
+*.whl
+
+# Installer logs
+pip-log.txt
+
+# Unit test / coverage
+htmlcov/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*,cover
+.pytest_cache/
+.tox/
+
+# PyInstaller
+#  Usually these files are written by a python script from a template
+*.manifest
+*.spec
+
+# Django stuff:
+*.log
+local_settings.py
+db.sqlite3
+db.sqlite3-journal
+staticfiles/         # اگر از collectstatic استفاده کردی ممکنه لازم نباشه؛ توضیح پایین.
+# اگر از collectstatic در سرور استفاده می‌کنی، ممکنه نخواهی staticfiles/ را ignore کنی — تصمیم با توست.
+
+# Django migrations
+# توجه: معمولاً بهتر است migrationها را در repo نگه داری کنی — اگر نمی‌خواهی نگه داری کنی، خط بعد را آنکامنت کن:
+# */migrations/*.py
+# */migrations/*.pyc
+# !*/migrations/__init__.py
+
+# Environment / secrets
+.env
+.env.* 
+*.env
+
+# Editor / OS files
+*.swp
+*~
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# IDEs
+.vscode/
+.idea/
+*.iml
+
+# Logs and temp files
+logs/
+*.log
+tmp/
+temp/
+
+# Docker
+*.log
+docker-compose.override.yml
+.env.override
+docker-compose.*.yml
+
+# Node / front-end (if present)
+node_modules/
+npm-debug.log
+yarn-error.log
+yarn-debug.log
+dist/
+
+# Static build artifacts (react/vue etc)
+build/
+public/
+
+# Python type checking caches
+.mypy_cache/
+
+# profiler
+.prof
+
+# coverage reports
+coverage/
+
+# celery
+celerybeat-schedule
+celerybeat.pid
+
+# backup files
+*.bak
+*.old
+*.orig
+
+# secrets / keys (just in case)
+*.pem
+*.key

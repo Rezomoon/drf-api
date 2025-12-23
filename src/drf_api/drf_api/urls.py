@@ -15,8 +15,17 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path , include
+
+
+
+# Tips : 
+# 1. # baraye estefadeh az masiri digar az include estefadeh mishavd !
+account_back_url = [
+    path ("accounts/" , include("drf_api.auth.accounts.urls.back_urls")) ,  # Tip : Hatman Adrees dehi bayad az aval bashad Yani drf_api ham bayad bashe
+]
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-]
+    # path("accounts/" , include("auth.accounts.urls.back_urls")) 
+] + account_back_url

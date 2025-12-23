@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
 from pathlib import Path
+from datetime import timedelta
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -41,9 +42,12 @@ INSTALLED_APPS = [
 
     #libs : 
     'rest_framework' , 
+    'rest_framework_simplejwt' , 
+
+    
 
     # apps :
-    'drf-api.auth.accounts',
+    'drf_api.auth.accounts',
 ]
 
 MIDDLEWARE = [
@@ -74,8 +78,8 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'drf_api.wsgi.application'
-
+# WSGI_APPLICATION = 'drf_api.wsgi.application'
+ASGI_APPLICATION = 'drf_api.asgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
@@ -106,6 +110,11 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+AUTH_USER_MODEL = "accounts.User" # Tip : Baraye Inke befahme k darim az custom User estefadeh mikonim !
+
+SIMPLE_JWT = {
+    "ACCESS_TOKEN_LIFETIME" :timedelta(days=5)
+}
 
 # Internationalization
 # https://docs.djangoproject.com/en/4.2/topics/i18n/
@@ -128,3 +137,19 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# REST_FRAMEWORK = {
+    
+#     'DEFAULT_AUTHENTICATION_CLASSES': (
+        
+#         'rest_framework_simplejwt.authentication.JWTAuthentication',
+#     ) ,    
+# }
+
+REST_FRAMEWORK = {
+    'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.TokenAuthentication',
+    ],
+}
+

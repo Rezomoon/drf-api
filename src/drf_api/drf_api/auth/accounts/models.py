@@ -31,7 +31,11 @@ class UserManager(BaseUserManager) :
         return user
 
 class User(AbstractBaseUser) : 
-    email           = models.EmailField( editable=False , max_length=254 , unique=True , verbose_name="email address") ,  
+    email           = models.EmailField( 
+        max_length=254 , 
+        unique=True , 
+        verbose_name="email address" , 
+        null = True) 
     is_active       = models.BooleanField( default=True , )
     is_admin        = models.BooleanField(default=False)
 

@@ -4,9 +4,11 @@ from drf_api.apps.blog.models import Blog
 from drf_api.apps.blog.serializers.front_ser import BlogSerializer
 from rest_framework.parsers import JSONParser
 from django.views.decorators.csrf import csrf_exempt
+from rest_framework.decorators import api_view
 # Create your views here.
 
 @csrf_exempt
+@api_view(["GET" , "POST"]) # With this decorator we can access to request.data
 def blog_view(request)  : 
     if request.method == "GET" : 
         blog_list = Blog.objects.all()
@@ -17,9 +19,10 @@ def blog_view(request)  :
             }
         )
     elif request.method == "POST" :
-        print(request)
-        data = JsonResponse().parse(request) # Baraye Ine k Data Daryafti ro parser konim
-        print(data)
+        # print(request)
+        # data = JsonResponse().parse(request) # Baraye Ine k Data Daryafti ro parser konim
+        # print(data)
+        data = request.data
         
         serializer = BlogSerializer(data)
 
@@ -37,6 +40,8 @@ def blog_view(request)  :
                     "data" :serializer.errors
                 }
             ) 
+        
+@api_view(["PUT"])
 @csrf_exempt        
 def blog_detail_view(request , blog_id) : 
 
@@ -54,7 +59,8 @@ def blog_detail_view(request , blog_id) :
         })
     if request.method == "PUT" :
 
-        data = JSONParser().parse(request)
+        # data = JSONParser().parse(request)
+        data = request.data
 
 
         serializer = BlogSerializer(instance = blog , data = data)

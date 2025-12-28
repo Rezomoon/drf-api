@@ -4,3 +4,4 @@ Estefadeh Konam
 
 # BAYAD az graph QL :
 baraye blogs va comments estefadeh Konam
+Va az Router ham hatman

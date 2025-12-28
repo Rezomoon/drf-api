@@ -15,3 +15,6 @@ class Blog(AudiTableModel) :
     allow_update = models.BooleanField(default=True)
 
     # created_time and Updated Time b sorate digar bayad sakhte shavad !
+    
+    def __str__(self):
+        return f"{self.title} , {self.id}"

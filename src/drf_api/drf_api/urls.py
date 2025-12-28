@@ -19,6 +19,7 @@ from django.urls import path , include
 
 
 
+
 # Tips : 
 # 1. # baraye estefadeh az masiri digar az include estefadeh mishavd !
 account_back_url = [
@@ -29,7 +30,11 @@ blog_front_url = [
     path("blog/" , include("drf_api.apps.blog.urls.front_urls"))
 ]
 
+document_url = [
+    path("doc/" , include("drf_api.document.doc_url")) ,
+]
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     # path("accounts/" , include("auth.accounts.urls.back_urls")) 
-] + account_back_url + blog_front_url
+] + account_back_url + blog_front_url + document_url

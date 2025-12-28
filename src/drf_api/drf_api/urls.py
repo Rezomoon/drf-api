@@ -25,7 +25,11 @@ account_back_url = [
     path ("accounts/" , include("drf_api.auth.accounts.urls.back_urls")) ,  # Tip : Hatman Adrees dehi bayad az aval bashad Yani drf_api ham bayad bashe
 ]
 
+blog_front_url = [
+    path("blog/" , include("drf_api.apps.blog.urls.front_urls"))
+]
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     # path("accounts/" , include("auth.accounts.urls.back_urls")) 
-] + account_back_url
+] + account_back_url + blog_front_url

@@ -48,6 +48,7 @@ INSTALLED_APPS = [
 
     # apps :
     'drf_api.auth.accounts',
+    'drf_api.apps.blog' , 
 ]
 
 MIDDLEWARE = [

@@ -220,3 +220,5 @@ If you’re interested in contributing or improving it, feel free to join 🚀
 
 این پروژه هنوز کامل نشده است.
 اگر علاقه‌مند به توسعه یا بهبود آن هستید، خوشحال می‌شوم مشارکت کنید 🌱
+## 📌 Roadmap
+Planned features and improvements are listed in [TODO.md](./TODO.md).

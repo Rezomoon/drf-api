@@ -4,6 +4,7 @@ from drf_api.apps.blog.models import Blog
 
 class BlogSerializer(serializers.Serializer) : 
 
+    id  = serializers.IntegerField()
     title =  serializers.CharField ()
     slug  = serializers.SlugField()
     content = serializers.CharField()
@@ -26,3 +27,7 @@ class BlogSerializer(serializers.Serializer) :
         return instance
         # return super().update(instance, validated_data)
 
+class BlogModelSerializer(serializers.ModelSerializer) : 
+    class Meta : 
+        model = Blog
+        fields = "__all__"

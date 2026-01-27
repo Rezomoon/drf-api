@@ -8,4 +8,9 @@ from .models import Blog
 
 # TIPS : B 2 ravesh mishe anjam dad admin pannel ro :
 
-admin.site.register(Blog)
+
+class AdminBlogModel(admin.ModelAdmin) :
+    list_display = ("id" , "status", "title", "author", "is_active")
+
+
+admin.site.register(Blog,AdminBlogModel)

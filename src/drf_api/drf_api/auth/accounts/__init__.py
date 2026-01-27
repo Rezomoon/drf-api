@@ -1,0 +1,1 @@
+default_app_config = "drf_api.auth.accounts.apps.AccountsConfig" #  ?? Chera baad az ezafeh kardan dar accounts.apps.py in bayad ezafeh shavad

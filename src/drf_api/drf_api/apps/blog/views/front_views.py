@@ -1,18 +1,20 @@
 from django.http import JsonResponse
 from django.shortcuts import render
 from drf_api.apps.blog.models import Blog
-from drf_api.apps.blog.serializers.front_ser import BlogSerializer , BlogModelSerializer
+from drf_api.apps.blog.serializers.front_ser import BlogSerializer , BlogCreateSerializer , BlogUpdateSerializer
 from rest_framework.parsers import JSONParser
 from django.views.decorators.csrf import csrf_exempt
 from rest_framework.decorators import api_view
 from rest_framework.response import Response 
 from rest_framework import status
 from rest_framework.views import APIView
+from rest_framework.permissions import IsAuthenticated
 # Create your views here.
 
 
 
 class BlogList(APIView) : 
+    permission_classes      = [IsAuthenticated ]
     def get(self , request , format = None) :  # Format ????
 
         blogs = Blog.objects.all()
@@ -26,26 +28,25 @@ class BlogList(APIView) :
         )
 
     def post(self , request , format = None) : # Format ????
-
         data        = request.data 
 
-        serializer  = BlogSerializer(data)
-
-        if serializer.is_valid() :
-            return Response (
+        serializer  = BlogCreateSerializer(data = data)
+        serializer.is_valid(raise_exception=True) 
+        blog = serializer.save(created_by=request.user)
+        return Response (
                 data= {
-                    'data' : serializer.data
+                    'data' : BlogSerializer(blog).data 
                 } , 
                 status=status.HTTP_201_CREATED
             )
-        else : 
-            return Response(
+        # else : 
+        #     return Response(
 
-                data = {'errors' : serializer.errors } ,
+        #         data = {'errors' : serializer.errors } ,
 
-                status=status.HTTP_406_NOT_ACCEPTABLE
+        #         status=status.HTTP_406_NOT_ACCEPTABLE
 
-                  )
+        #           )
          
 
 
